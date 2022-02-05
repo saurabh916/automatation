@@ -6,8 +6,8 @@ pipeline {
         stage('Checkout Codebase'){
             steps{
                 cleanWs()
-                checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']],userRemoteConfigs:
-                [[url: 'git@github.com:saurabh916/automatation.git']]]
+                sh "git clone https://github.com/saurabh916/automatation.git"
+                sh "mvn clean -f automation"
             }
         }
 
