@@ -7,7 +7,7 @@ pipeline {
             steps{
                 cleanWs()
                 sh "git clone https://github.com/saurabh916/automatation.git"
-                sh "mvn clean -f automation"
+               // sh "mvn clean -f automation"
             }
         }
 
