@@ -13,6 +13,7 @@ pipeline {
         stage('check path') {
             steps {
               dir('src') {
+                  sh "pwd"
                   sh'ls -la'
               }
             }
