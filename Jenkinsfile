@@ -5,8 +5,10 @@ pipeline {
         stage('Checkout Codebase'){
             steps{
                 cleanWs()
-                sh "git clone https://github.com/saurabh916/automatation.git"
+               // sh "git clone https://github.com/saurabh916/automatation.git"
                // sh "mvn clean -f automation"
+                checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']],userRemoteConfigs:
+                [[url: 'https://github.com/saurabh916/automatation.git']]]
             }
         }
         
@@ -24,14 +26,14 @@ pipeline {
                 sh 'mkdir lib'
                 sh 'cd lib/ ; wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.0/junit-platform-console-standalone-1.7.0-all.jar'
                 sh "pwd"
-                dir('src/jenkins') {
+                dir('src') {
                   sh "pwd"
                   sh'ls -la'
               //    sh 'javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" CarTest.java Car.java App.java'  
                  }
                 sh "pwd"
             //    sh'ls -la'
-            //    sh 'cd src ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" CarTest.java Car.java App.java'
+                sh 'cd src ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" CarTest.java Car.java App.java'
             }
         }
 
