@@ -8,8 +8,6 @@ pipeline {
         stage('Checkout Codebase'){
             steps{
                 cleanWs()
-               // sh "git clone https://github.com/saurabh916/automatation.git"
-               // sh "mvn clean -f automation"
                 checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']],userRemoteConfigs:
                 [[url: 'https://github.com/saurabh916/automatation.git']]]
             }
@@ -32,10 +30,8 @@ pipeline {
                 dir('src') {
                   sh "pwd"
                   sh'ls -la'
-              //    sh 'javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" CarTest.java Car.java App.java'  
-                 }
+               }
                 sh "pwd"
-            //    sh'ls -la'
                 sh 'cd src ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" CarTest.java Car.java App.java'
             }
         }
