@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class CarTest {
 
     String make = "Honda"; 
-    String model = "Civic"; 
+    String model = "Civicc"; 
     Car testCar = new Car(make, model); 
     
 
